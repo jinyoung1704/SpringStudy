@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.TransactionDao">
+    <insert id="insertTest01" parameterType="map">
+		insert into test01  values (#{col1}, #{col2}, #{col3})
+	        
+    </insert>
+    <insert id="insertTest02" parameterType="map">
+        insert into test02  values (#{col1}, #{col2}, #{col3})
+    </insert>
+    <insert id="insertTest03" parameterType="map">
+        insert into test03  values (#{col1}, #{col2}, #{col3})
+    </insert>
+	
+</mapper>
