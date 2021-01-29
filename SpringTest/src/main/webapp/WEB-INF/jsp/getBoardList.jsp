@@ -84,9 +84,9 @@
  <%
 	for(Board b: list) {
 %>                        
-            <tr>
+            <tr> 
                 <td><%=b.getBoardnum() %></td>
-                <td><%=b.getTitle() %></td>
+                <td><a href="/postdetail.action?getBoardnum=1"><%=b.getTitle() %></a></td>
                 <td><%=b.getName() %></td>
                 <td><fmt:formatDate value="<%=b.getWriteday() %>" pattern="yyyy-MM-dd"/></td>
                 <td><%=b.getReadcount() %></td>
@@ -102,3 +102,10 @@
     </div>
 </body>
 </html>
+                
+                
+               
+               
+               
+               
+               

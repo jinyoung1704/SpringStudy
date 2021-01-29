@@ -151,6 +151,23 @@ public class MemberController {
 		mav.addObject("boardList", boardList);		
 		return mav;
 	}
+    
+    @RequestMapping("/BoardDetail")
+	public String boardDetail() {		
+		return "BoardDetail";
+    }
+    
+    //상세페이지
+    @GetMapping("/postdetail.action")
+	public String getBoard(@RequestParam("boardnum") int boardnum) {		
+		
+		Board board = boardService.getBoard(boardnum);
+		ModelAndView mav = new ModelAndView();
+		boardService.getBoard(boardnum);
+		mav.setViewName("getBoard");
+		mav.addObject("board", board);		
+		return "redirect:/BoardDetail";
+	}
 		
 	
 }
