@@ -39,7 +39,6 @@
                     <td id="title">아이디</td>
                     <td>
                         <input type="text" id="id" name="id" maxlength="20">
-                        <input type="button">    
                     </td>
                 </tr>
                         
