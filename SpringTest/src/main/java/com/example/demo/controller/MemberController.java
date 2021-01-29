@@ -21,7 +21,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.configuration.CustomProperty;
 import com.example.demo.dto.Member;
+import com.example.demo.dto.Board;
 import com.example.demo.service.MemberService;
+import com.example.demo.service.BoardService;
 
 
 @Controller
@@ -41,6 +43,8 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
+	@Autowired
+	BoardService boardService;
 	
 	/////////////////////////// example ///////////////////////////////////////////	
 	@RequestMapping(value = "/main" )
@@ -116,13 +120,37 @@ public class MemberController {
 	    
 	
 	 
-	    @ResponseBody
-		@GetMapping("/getMemberCount")
-		public int getMemberCount(@RequestParam("id") String id) {		
-			logger.info("id ==> {}",id);
-			int count = memberService.getMemberCount(id);
-			return count;
-		}
+    @ResponseBody
+	@GetMapping("/getMemberCount")
+	public int getMemberCount(@RequestParam("id") String id) {		
+		logger.info("id ==> {}",id);
+		int count = memberService.getMemberCount(id);
+		return count;
+	}
+    
+   
+	 
+	//글쓰기
+	 @RequestMapping("/PostForm")
+		public String postForm() {		
+			return "PostForm";
+	 }
+	
+	@RequestMapping(value = "/postSubmit", method = RequestMethod.POST)
+	public String insertBoard(@ModelAttribute Board board) {		
+	
+		boardService.insertBoard(board);
+		return "redirect:/BoardList";
+	}
+	
+	//게시물 리스트
+    @GetMapping("/BoardList")
+	public ModelAndView getBoardList(ModelAndView mav) {		
+		List<Board> boardList =  boardService.getBoardList();
+		mav.setViewName("getBoardList");
+		mav.addObject("boardList", boardList);		
+		return mav;
+	}
 		
 	
 }

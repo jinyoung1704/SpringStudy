@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.BoardDao">
+    <select id="getBoardList" resultType="com.example.demo.dto.Board">
+        SELECT * FROM BOARD
+    </select>
+	
+	<select id="getBoard" resultType="com.example.demo.dto.Board">
+        SELECT * FROM BOARD
+        where 1=1
+        and  boardnum = #{boardnum}
+    </select>
+    
+    <select id="getMemberCount" resultType="int">
+        SELECT count(1) FROM BOARD
+        where 1=1
+        and  boardnum = #{boardnum, jdbcType=VARCHAR}
+        
+    
+    </select>
+	
+	<insert id="insertBoard" parameterType="com.example.demo.dto.Board">	
+		insert into board(boardnum,title,name,content,password) values(boardnum.nextval,#{title},#{name},#{content},#{password})
+	</insert>
+	
+	
+	
+	
+</mapper>

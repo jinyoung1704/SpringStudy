@@ -111,6 +111,16 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>	
+		  <!-- jstl -->
+	  <dependency>
+	      <groupId>javax.servlet</groupId>
+	      <artifactId>jstl</artifactId>
+	  </dependency>
+	  <dependency>
+		   <groupId>taglibs</groupId>
+		   <artifactId>standard</artifactId>
+		   <version>1.1.2</version>
+	  </dependency>
 	</dependencies>
 
 	<build>
